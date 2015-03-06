@@ -9,7 +9,7 @@ double count(int n){
     if (n==3) return (double)11;
     
     if (ary[n] == 0)
-        ary[n] = (double)1+count(n-1)+(double)5+count(n-2)+(double)11+count(n-3);
+        ary[n] = count(n-1)+(double)4*count(n-2)+(double)2*count(n-3);
     
     return ary[n];
 }
