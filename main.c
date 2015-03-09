@@ -1,24 +1,20 @@
 #include "stdio.h"
-#include "stdlib.h"
 
 double ary[41] = {0, 1, 5, 11};
 
-double count(int n){
-    if (n==1) return (double)1;
-    if (n==2) return (double)5;
-    if (n==3) return (double)11;
-    
+double count(unsigned int n){
     if (ary[n] == 0)
-        ary[n] = count(n-1)+(double)4*count(n-2)+(double)2*count(n-3);
+        ary[n] = count(n-1) + 4*count(n-2) + 2*count(n-3);
     
     return ary[n];
 }
 
 int main(){
-    int t, n, i;
-    scanf("%d", &t);
+    unsigned int t, n, i;
+    
+    scanf("%u", &t);
     for (i=0; i<t; i++) {
-        scanf("%d", &n);
+        scanf("%u", &n);
         printf("%.0f\n", count(n));
     }
     return 0;
